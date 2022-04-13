@@ -23,15 +23,32 @@ struct ContentView: View {
                 .padding(.bottom, 20)
                 
             VStack{
-                TextField(" Username", text: $username)
-                    .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
-                    .background(.white)
-                    .cornerRadius(6)
+                ZStack(alignment: .leading) {
+                    if username.isEmpty {
+                        Text("Username")
+                            .foregroundColor(.gray)
+                            .padding(.leading, 10)
+                    }
+                    TextField("", text: $username)
+                        .foregroundColor(.white)
+                        .padding(.leading, 10)
+                }
+                .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(.white, lineWidth: 0.5))
                 
-                TextField(" Password", text: $password)
-                    .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
-                    .background(.white)
-                    .cornerRadius(6)
+                
+                ZStack(alignment: .leading) {
+                    if password.isEmpty {
+                        Text("Password")
+                            .foregroundColor(.gray)
+                            .padding(.leading, 10)
+                    }
+                    TextField("", text: $password)
+                        .foregroundColor(.white)
+                        .padding(.leading,10)
+                }
+                .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(.white, lineWidth: 0.5))
                 
                 Button(action: {
                             print("login")
