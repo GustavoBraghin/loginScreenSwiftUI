@@ -12,8 +12,6 @@ struct ContentView: View {
     @State var username: String = ""
     @State var password: String = ""
     
-    let bound = UIScreen.main.bounds
-    
     var body: some View {
         
         VStack{
@@ -21,45 +19,60 @@ struct ContentView: View {
             Text("First Login Screen")
                 .font(.title)
                 .foregroundColor(.white)
+                .padding(.top, 140)
+                .padding(.bottom, 20)
                 
+            VStack{
+                TextField("Username", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal)
+                
+                TextField("Password", text: $password)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal)
+                    .padding(.bottom,10)
+                
+                Button("Login", action: {
+                    print("login")
+                })
+                .font(.title3)
+                .padding(.horizontal, 115.0)
+                .padding(.vertical, 5)
+                .background(.blue)
+                .foregroundColor(.white)
+                .cornerRadius(15)
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical)
             
-            TextField("Username", text: $username)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal)
-            
-            TextField("Password", text: $password)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal)
-            
-            Button("Login", action: {
-                print("login")
-            })
-            .padding(5)
-            .background(.blue)
-            .foregroundColor(.white)
             
             Text("or connect with")
                 .font(.footnote)
                 .foregroundColor(.white)
+                .padding(.vertical, 5)
             
             HStack{
                 Button("FB", action: {
                     print("FB")
                 })
-                .padding(5)
+                .padding(.horizontal, 30)
+                .padding(.vertical, 5)
                 .foregroundColor(.white)
                 .background(.blue)
+                .cornerRadius(15)
                 
                 Button("TT", action: {
                     print("TT")
                 })
-                .padding(5)
+                .padding(.horizontal, 30)
+                .padding(.vertical, 5)
                 .foregroundColor(.white)
                 .background(.cyan)
+                .cornerRadius(15)
                 
             }.padding(5)
+            Spacer()
         }
-        .frame(width: bound.width, height: bound.height, alignment: .center)
         .background(.purple)
     }
 }
