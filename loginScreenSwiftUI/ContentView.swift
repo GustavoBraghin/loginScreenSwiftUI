@@ -23,24 +23,26 @@ struct ContentView: View {
                 .padding(.bottom, 20)
                 
             VStack{
-                TextField("Username", text: $username)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
+                TextField(" Username", text: $username)
+                    .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                    .background(.white)
+                    .cornerRadius(6)
                 
-                TextField("Password", text: $password)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
-                    .padding(.bottom,10)
+                TextField(" Password", text: $password)
+                    .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                    .background(.white)
+                    .cornerRadius(6)
                 
-                Button("Login", action: {
-                    print("login")
-                })
-                .font(.title3)
-                .padding(.horizontal, 115.0)
-                .padding(.vertical, 5)
-                .background(.blue)
-                .foregroundColor(.white)
-                .cornerRadius(15)
+                Button(action: {
+                            print("login")
+                        }) {
+                            Text("Login")
+                                .frame(width: UIScreen.main.bounds.width * 0.72, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                                .foregroundColor(.white)
+                                .background(.blue)
+                                .cornerRadius(15)
+                        }
+                        .padding(.top, 10)
             }
             .padding(.horizontal, 40)
             .padding(.vertical)
@@ -52,25 +54,28 @@ struct ContentView: View {
                 .padding(.vertical, 5)
             
             HStack{
-                Button("FB", action: {
-                    print("FB")
-                })
-                .padding(.horizontal, 30)
-                .padding(.vertical, 5)
-                .foregroundColor(.white)
-                .background(.blue)
-                .cornerRadius(15)
                 
-                Button("TT", action: {
-                    print("TT")
-                })
-                .padding(.horizontal, 30)
-                .padding(.vertical, 5)
-                .foregroundColor(.white)
-                .background(.cyan)
-                .cornerRadius(15)
+                Button(action: {
+                            print("FB")
+                        }) {
+                            Text("FB")
+                                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                                .foregroundColor(.white)
+                                .background(.blue)
+                                .cornerRadius(15)
+                        }
                 
-            }.padding(5)
+                Button(action: {
+                            print("TT")
+                        }) {
+                            Text("TT")
+                                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.09, alignment: .center)
+                                .foregroundColor(.white)
+                                .background(.cyan)
+                                .cornerRadius(15)
+                        }
+            }
+            .padding(5)
             Spacer()
         }
         .background(Image("background").resizable().scaledToFill())
