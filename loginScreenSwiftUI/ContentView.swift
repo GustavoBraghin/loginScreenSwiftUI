@@ -73,7 +73,8 @@ struct ContentView: View {
             }.padding(5)
             Spacer()
         }
-        .background(.purple)
+        .background(Image("background").resizable().scaledToFill())
+        .ignoresSafeArea()
     }
 }
 
